@@ -4,7 +4,9 @@ Submit a random text and parse_dutch_postcode.php attempts to extract a single p
 
 You call the function as :
 
+<?php
 $foundPostcodes = parsePostcode( $_POST['postcode'], TRUE/FALSE );
+?>
 
 FALSE returns a single, unquoted, postcode, usually the first one it finds.
 TRUE returns a comma separated string with quoted postcodes.
@@ -36,21 +38,29 @@ SELECT * FROM postcode_NL WHERE PostcodeVolledig IN ('1234AB','5520ZZ','1091SC',
 Select a single postcode with nummer and letters combined.
 Remove the space in the result :
 
+<?php
 $PostcodeVolledig = preg_replace( '/ /' , '', $foundPostcodes );
+?>
 
 So 5621 BJ becomes 5621BJ.
 
 The query the database :
 
+<?php
 $query = 'SELECT * FROM postcode_NL WHERE PostcodeVolledig = "' . $PostcodeVolledig . '"';
+?>
 (SELECT * FROM postcode_NL WHERE PostcodeVolledig = "5621BJ")
 
 Select a single postcode with number and letters separated.
 Split the result into an array.
 
+<?php
 $PostcodeSplit = explode( ' ', $foundPostcodes);
+?>
 
 Then query the database :
 
+<?php
 $query = 'SELECT * FROM postcode_NL WHERE PostcodeNummers = "' . $PostcodeSplit[0] . '" && PostcodeLetters = "' . $PostcodeSplit[1] . '"';
+?>
 (SELECT * FROM postcode_NL WHERE PostcodeNummers = "5621" && PostcodeLetters = "BJ")
