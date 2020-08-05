@@ -1,6 +1,4 @@
-# parse_dutch_postcodes
-
-Parse Dutch Postcode
+# Parse Dutch Postcodes
 
 Submit a random text and parse_dutch_postcode.php attempts to extract a single postcode or multiple postcodes.
 
