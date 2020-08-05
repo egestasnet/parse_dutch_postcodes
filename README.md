@@ -33,7 +33,7 @@ Here's the QUERY to select multiple postcodes :
 ```
 SELECT * FROM postcode_NL WHERE PostcodeVolledig IN ('1234AB','5520ZZ','1091SC','8245BK','1234AB','1234AB') ORDER BY Plaats DESC
 ```
-Select a single postcode with nummer and letters combined.
+Select a single postcode with number and letters combined.
 Remove the space in the result :
 ```
 $PostcodeVolledig = preg_replace( '/ /' , '', $foundPostcodes );
