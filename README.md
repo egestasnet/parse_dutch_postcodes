@@ -41,14 +41,16 @@ $PostcodeVolledig = preg_replace( '/ /' , '', $foundPostcodes );
 So 5621 BJ becomes 5621BJ.
 
 The query the database :
+
 $query = 'SELECT * FROM postcode_NL WHERE PostcodeVolledig = "' . $PostcodeVolledig . '"';
 (SELECT * FROM postcode_NL WHERE PostcodeVolledig = "5621BJ")
 
-Select a single postcode with number and letters are separated.
+Select a single postcode with number and letters separated.
 Split the result into an array.
 
 $PostcodeSplit = explode( ' ', $foundPostcodes);
 
 Then query the database :
+
 $query = 'SELECT * FROM postcode_NL WHERE PostcodeNummers = "' . $PostcodeSplit[0] . '" && PostcodeLetters = "' . $PostcodeSplit[1] . '"';
 (SELECT * FROM postcode_NL WHERE PostcodeNummers = "5621" && PostcodeLetters = "BJ")
